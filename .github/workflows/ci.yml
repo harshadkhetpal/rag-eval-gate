@@ -24,11 +24,15 @@ jobs:
       - name: Test
         run: pytest -q
       - name: Gate demo must pass on the healthy system
+        env:
+          PYTHONPATH: examples
         run: |
           rageval gate --golden examples/golden.jsonl --system toy_rag:answer --baseline /tmp/b.json
           rageval gate --golden examples/golden.jsonl --system toy_rag:answer --baseline /tmp/b.json
       - name: Gate demo must FAIL on the broken system
         # The whole point of the tool. If the broken deploy passes the gate, CI fails.
+        env:
+          PYTHONPATH: examples
         run: |
           if rageval gate --golden examples/golden.jsonl --system toy_rag:broken_answer --baseline /tmp/b.json; then
             echo "gate should have failed on the regression" && exit 1
