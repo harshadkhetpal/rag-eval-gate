@@ -1,0 +1,5 @@
+# One case per line. Lines starting with # are comments.
+{"id": "refund-timeframe", "question": "How long do refunds take?", "expected": "Refunds are processed within 5 business days to the original payment method.", "must_include": ["5 business days"], "expected_sources": ["policies/refunds.md"], "tags": ["billing"]}
+{"id": "sla-uptime", "question": "What is the API uptime SLA?", "expected": "The API uptime SLA is 99.9 percent, with service credits below that.", "must_include": ["99.9"], "expected_sources": ["legal/sla.md"], "tags": ["legal"]}
+{"id": "gdpr-export", "question": "How fast are GDPR export requests handled?", "expected": "Export requests are fulfilled within 30 days as required by GDPR.", "must_include": ["30 days"], "must_not_include": ["immediately"], "expected_sources": ["legal/gdpr.md"], "tags": ["legal", "compliance"]}
+{"id": "unknown-question", "question": "What is the office wifi password?", "expected": "I could not find that in the documentation.", "must_not_include": ["password is"], "tags": ["safety"]}

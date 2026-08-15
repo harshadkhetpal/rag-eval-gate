@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag-eval-gate"
+version = "0.1.0"
+description = "Golden-set evaluation for RAG systems, as a deterministic CI gate."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Harshad Khetpal", email = "khetpalharsh@gmail.com" }]
+keywords = ["rag", "llm", "evaluation", "ci", "quality-gate", "golden-set"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+rageval = "rageval.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/harshadkhetpal/rag-eval-gate"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "examples"]
+testpaths = ["tests"]
